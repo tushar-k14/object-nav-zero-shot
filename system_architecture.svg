@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,3 L0,6" fill="#555"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,3 L0,6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,3 L0,6" fill="#22c55e"/>
+    </marker>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">System Architecture: Vision-Language Guided Indoor Navigation</text>
+
+  <!-- ============================================ -->
+  <!-- INPUT LAYER -->
+  <!-- ============================================ -->
+  <text x="30" y="65" font-size="11" font-weight="bold" fill="#888">INPUT</text>
+
+  <!-- Natural Language -->
+  <rect x="30" y="75" width="130" height="42" rx="6" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="95" y="93" text-anchor="middle" font-size="10" font-weight="600" fill="#6d28d9">Natural Language</text>
+  <text x="95" y="106" text-anchor="middle" font-size="8" fill="#7c3aed">"Go to the kitchen"</text>
+
+  <!-- RGB-D -->
+  <rect x="30" y="130" width="130" height="42" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="95" y="148" text-anchor="middle" font-size="10" font-weight="600" fill="#1d4ed8">RGB-D Sensor</text>
+  <text x="95" y="161" text-anchor="middle" font-size="8" fill="#3b82f6">480×640 @ 90° FOV</text>
+
+  <!-- Odometry -->
+  <rect x="30" y="185" width="130" height="42" rx="6" fill="#d1fae5" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="95" y="203" text-anchor="middle" font-size="10" font-weight="600" fill="#15803d">Agent Pose</text>
+  <text x="95" y="216" text-anchor="middle" font-size="8" fill="#22c55e">Position + Rotation</text>
+
+  <!-- ============================================ -->
+  <!-- PERCEPTION -->
+  <!-- ============================================ -->
+  <rect x="195" y="55" width="175" height="205" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+  <text x="282" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e40af">Perception</text>
+
+  <!-- YOLO -->
+  <rect x="210" y="82" width="145" height="36" rx="5" fill="#eff6ff" stroke="#93c5fd" stroke-width="1"/>
+  <text x="282" y="98" text-anchor="middle" font-size="9" font-weight="600" fill="#1d4ed8">YOLOv8 Detection</text>
+  <text x="282" y="110" text-anchor="middle" font-size="7.5" fill="#60a5fa">Object Detection + Segmentation</text>
+
+  <!-- Instruction Parser -->
+  <rect x="210" y="126" width="145" height="36" rx="5" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="282" y="142" text-anchor="middle" font-size="9" font-weight="600" fill="#6d28d9">Instruction Parser</text>
+  <text x="282" y="154" text-anchor="middle" font-size="7.5" fill="#a78bfa">Regex / VLM mode</text>
+
+  <!-- Depth Processing -->
+  <rect x="210" y="170" width="145" height="36" rx="5" fill="#ecfdf5" stroke="#86efac" stroke-width="1"/>
+  <text x="282" y="186" text-anchor="middle" font-size="9" font-weight="600" fill="#15803d">Depth Projection</text>
+  <text x="282" y="198" text-anchor="middle" font-size="7.5" fill="#4ade80">Pinhole → 3D Points</text>
+
+  <!-- Stop Verification -->
+  <rect x="210" y="214" width="145" height="36" rx="5" fill="#fef3c7" stroke="#fbbf24" stroke-width="1"/>
+  <text x="282" y="230" text-anchor="middle" font-size="9" font-weight="600" fill="#b45309">Stop Verification</text>
+  <text x="282" y="242" text-anchor="middle" font-size="7.5" fill="#d97706">Multi-candidate + Depth check</text>
+
+  <!-- ============================================ -->
+  <!-- MAPPING & REPRESENTATION -->
+  <!-- ============================================ -->
+  <rect x="405" y="55" width="175" height="205" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+  <text x="492" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#047857">Mapping &amp; Representation</text>
+
+  <!-- Occupancy Map -->
+  <rect x="420" y="82" width="145" height="36" rx="5" fill="#ecfdf5" stroke="#86efac" stroke-width="1"/>
+  <text x="492" y="98" text-anchor="middle" font-size="9" font-weight="600" fill="#047857">Occupancy Map</text>
+  <text x="492" y="110" text-anchor="middle" font-size="7.5" fill="#34d399">Top-down grid (5cm/px)</text>
+
+  <!-- Semantic Map -->
+  <rect x="420" y="126" width="145" height="36" rx="5" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+  <text x="492" y="142" text-anchor="middle" font-size="9" font-weight="600" fill="#047857">Semantic Object Map</text>
+  <text x="492" y="154" text-anchor="middle" font-size="7.5" fill="#34d399">Tracked Objects + Footprints</text>
+
+  <!-- Scene Graph -->
+  <rect x="420" y="170" width="145" height="36" rx="5" fill="#faf5ff" stroke="#c084fc" stroke-width="1"/>
+  <text x="492" y="186" text-anchor="middle" font-size="9" font-weight="600" fill="#7e22ce">Scene Graph</text>
+  <text x="492" y="198" text-anchor="middle" font-size="7.5" fill="#a855f7">Objects + Rooms + Edges</text>
+
+  <!-- Room Annotations -->
+  <rect x="420" y="214" width="145" height="36" rx="5" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
+  <text x="492" y="230" text-anchor="middle" font-size="9" font-weight="600" fill="#c2410c">Room Annotations</text>
+  <text x="492" y="242" text-anchor="middle" font-size="7.5" fill="#ea580c">Manual labels (Map Editor)</text>
+
+  <!-- ============================================ -->
+  <!-- PLANNING -->
+  <!-- ============================================ -->
+  <rect x="615" y="55" width="175" height="205" rx="8" fill="#fff" stroke="#e5e7eb" stroke-width="1" filter="url(#shadow)"/>
+  <text x="702" y="72" text-anchor="middle" font-size="11" font-weight="bold" fill="#b45309">Planning &amp; Navigation</text>
+
+  <!-- Frontier Explorer -->
+  <rect x="630" y="82" width="145" height="36" rx="5" fill="#fefce8" stroke="#fde047" stroke-width="1"/>
+  <text x="702" y="98" text-anchor="middle" font-size="9" font-weight="600" fill="#a16207">Frontier Explorer</text>
+  <text x="702" y="110" text-anchor="middle" font-size="7.5" fill="#ca8a04">Detect → Score → Select</text>
+
+  <!-- A* Planner -->
+  <rect x="630" y="126" width="145" height="36" rx="5" fill="#fef9c3" stroke="#fde047" stroke-width="1"/>
+  <text x="702" y="142" text-anchor="middle" font-size="9" font-weight="600" fill="#a16207">A* Path Planner</text>
+  <text x="702" y="154" text-anchor="middle" font-size="7.5" fill="#ca8a04">Inflation + Stuck recovery</text>
+
+  <!-- Goal Resolution -->
+  <rect x="630" y="170" width="145" height="36" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="702" y="186" text-anchor="middle" font-size="9" font-weight="600" fill="#92400e">Goal Resolution</text>
+  <text x="702" y="198" text-anchor="middle" font-size="7.5" fill="#b45309">Room center / Object pos</text>
+
+  <!-- Action Output -->
+  <rect x="630" y="214" width="145" height="36" rx="5" fill="#fee2e2" stroke="#f87171" stroke-width="1"/>
+  <text x="702" y="230" text-anchor="middle" font-size="9" font-weight="600" fill="#b91c1c">Action Output</text>
+  <text x="702" y="242" text-anchor="middle" font-size="7.5" fill="#dc2626">forward / left / right / stop</text>
+
+  <!-- ============================================ -->
+  <!-- ARROWS: Input → Perception -->
+  <!-- ============================================ -->
+  <line x1="160" y1="96" x2="207" y2="96" stroke="#8b5cf6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="160" y1="96" x2="207" y2="144" stroke="#8b5cf6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="160" y1="151" x2="207" y2="100" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#arrow-blue)"/>
+  <line x1="160" y1="151" x2="207" y2="188" stroke="#3b82f6" stroke-width="1.2" marker-end="url(#arrow-blue)"/>
+  <line x1="160" y1="206" x2="207" y2="188" stroke="#22c55e" stroke-width="1.2" marker-end="url(#arrow-green)"/>
+
+  <!-- Perception → Mapping -->
+  <line x1="358" y1="100" x2="417" y2="100" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="358" y1="100" x2="417" y2="144" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="358" y1="144" x2="417" y2="188" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="358" y1="188" x2="417" y2="100" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Mapping → Planning -->
+  <line x1="568" y1="100" x2="627" y2="100" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="568" y1="100" x2="627" y2="144" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="568" y1="188" x2="627" y2="100" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="568" y1="188" x2="627" y2="188" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="568" y1="232" x2="627" y2="188" stroke="#555" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Action → back to agent (feedback loop) -->
+  <path d="M778 232 Q 830 232 830 300 Q 830 380 450 380 Q 70 380 70 300 Q 70 230 70 206" 
+        stroke="#dc2626" stroke-width="1.2" fill="none" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+  <text x="450" y="373" text-anchor="middle" font-size="8" fill="#dc2626">Action execution → New observation</text>
+
+  <!-- ============================================ -->
+  <!-- TWO MODES BOX -->
+  <!-- ============================================ -->
+  <rect x="30" y="410" width="410" height="190" rx="8" fill="#f0f9ff" stroke="#bae6fd" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="235" y="430" text-anchor="middle" font-size="12" font-weight="bold" fill="#0369a1">Known Environment (Map Available)</text>
+
+  <text x="50" y="452" font-size="9" fill="#334155">1. Pre-built occupancy map loaded</text>
+  <text x="50" y="468" font-size="9" fill="#334155">2. Room boundaries annotated (Map Editor)</text>
+  <text x="50" y="484" font-size="9" fill="#334155">3. YOLO-detected objects in map coordinates</text>
+  <text x="50" y="500" font-size="9" fill="#334155">4. Instruction → Room center / Object position</text>
+  <text x="50" y="516" font-size="9" fill="#334155">5. A* path planning on navigable map</text>
+  <text x="50" y="540" font-size="9" font-weight="600" fill="#0369a1">Pipeline: Instruction → Parser → Goal Resolution → A* → Navigate</text>
+  <text x="50" y="558" font-size="8" fill="#64748b">Lightweight: No CLIP/VLM needed. Runs on Go2 robot.</text>
+  <rect x="50" y="570" width="370" height="18" rx="3" fill="#dbeafe"/>
+  <text x="235" y="583" text-anchor="middle" font-size="8" font-weight="600" fill="#1d4ed8">Primary Thesis Contribution</text>
+
+  <rect x="460" y="410" width="410" height="190" rx="8" fill="#fefce8" stroke="#fde68a" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="665" y="430" text-anchor="middle" font-size="12" font-weight="bold" fill="#a16207">Unknown Environment (Exploration)</text>
+
+  <text x="480" y="452" font-size="9" fill="#334155">1. Agent explores via frontier-based strategy</text>
+  <text x="480" y="468" font-size="9" fill="#334155">2. YOLO detects objects in real-time</text>
+  <text x="480" y="484" font-size="9" fill="#334155">3. Occupancy + semantic map built online</text>
+  <text x="480" y="500" font-size="9" fill="#334155">4. Scene graph constructed from detections</text>
+  <text x="480" y="516" font-size="9" fill="#334155">5. Multi-candidate stop verification</text>
+  <text x="480" y="540" font-size="9" font-weight="600" fill="#a16207">Pipeline: Explore → Detect → Map → Verify → Stop</text>
+  <text x="480" y="558" font-size="8" fill="#64748b">HM3D ObjectNav benchmark: 18% SR on val split</text>
+  <rect x="480" y="570" width="370" height="18" rx="3" fill="#fef9c3"/>
+  <text x="665" y="583" text-anchor="middle" font-size="8" font-weight="600" fill="#92400e">Secondary Contribution (Future: Go2 deployment)</text>
+</svg>
